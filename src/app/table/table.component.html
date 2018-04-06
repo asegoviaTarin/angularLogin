@@ -1,0 +1,27 @@
+﻿<div class="text-left">
+  <h3>Table</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Navegador</th>
+        <th>Me gusta</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let nav of data; trackBy: index;'>
+        <td>
+          {{nav.name}}
+        </td>
+        <td>
+            {{nav.y}}
+        </td>
+        <td>
+            {{nav.likes}}
+        </td>
+      </tr>
+    </tbody>
+
+    </table>
+</div>
+

@@ -1,0 +1,9 @@
+﻿<div class="col-md-12 text-center">
+    <h1>Hi {{currentUser.firstName}}!</h1>
+    <p>You're logged in with Angular 2/5 and Angular CLI!!</p>
+    <div class="col-md-12 col-md-offset-1 ">
+      <simple-chart [data]="data"></simple-chart>
+      <my-table [data]="data"></my-table>
+    </div>
+    <p><a [routerLink]="['/login']">Logout</a></p>
+</div>
