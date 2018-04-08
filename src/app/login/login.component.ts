@@ -26,17 +26,14 @@ export class LoginComponent implements OnInit {
 
         // get return url from route parameters or default to '/'
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-        console.log('de incio la url es:',this.returnUrl)
         this.fullImagePath = '/assets/login-pattern.png';
     }
 
     login() {
-        console.log('init login')
         this.loading = true;
         this.authenticationService.login(this.model.username, this.model.password)
-            .subscribe(
+        .subscribe(
                 data => {
-                    console.log(' login go to', this.returnUrl)
                     this.router.navigate([this.returnUrl]);
                 },
                 error => {

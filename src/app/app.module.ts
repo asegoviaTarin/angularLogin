@@ -2,6 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }    from '@angular/forms';
 import { ChartModule } from 'angular2-highcharts';
+import { HighchartsStatic } from 'angular2-highcharts/dist/HighchartsService';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
@@ -20,13 +21,19 @@ import { ChartComponent } from './chart/index';
 import { TableComponent } from './table/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
+
+declare var require: any;
+export function highchartsFactory() {
+  return require('highcharts');
+}
+
 @NgModule({
     imports: [
         BrowserModule,
         FormsModule,
         HttpClientModule,
         routing,
-        ChartModule.forRoot(require('highcharts'))
+        ChartModule
     ],
     declarations: [
         AppComponent,
@@ -47,9 +54,11 @@ import { RegisterComponent } from './register/index';
             useClass: JwtInterceptor,
             multi: true
         },
+        {
+            provide: HighchartsStatic,
+            useFactory: highchartsFactory
+          },
 
-        // provider used to create fake backend
-        fakeBackendProvider
     ],
     bootstrap: [AppComponent]
 })

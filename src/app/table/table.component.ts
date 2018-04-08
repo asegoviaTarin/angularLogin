@@ -6,11 +6,7 @@
 })
 export class TableComponent {
   @Input() data:Element[];
-  constructor() {  
-    
-  }
-
-
+}
 export interface Element {
   name: string;
   y: string;
